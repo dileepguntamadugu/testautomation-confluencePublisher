@@ -26,7 +26,7 @@ public class GetService {
 		get(endPointURL).then().contentType(ContentType.JSON).extract().response();
 		logger.info(response.jsonPath().get("body.storage.value"));
 		responseDataMap.put("body", (String) response.jsonPath().get("body.storage.value"));
-		responseDataMap.put("version", String.valueOf(response.jsonPath().get("version.number")));
+		responseDataMap.put("version", response.jsonPath().get("version.number").toString());
 		return responseDataMap;
 	}
 }
