@@ -1,0 +1,6 @@
+com\confluence\api\PutService.class
+com\confluence\data\AggregateData.class
+com\confluence\api\PostService.class
+com\confluence\properties\PropertiesLoader.class
+com\confluence\api\GetService.class
+com\confluence\publish\PublishAggregatedData.class
