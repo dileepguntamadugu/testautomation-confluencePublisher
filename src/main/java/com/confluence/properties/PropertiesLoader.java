@@ -9,13 +9,6 @@ import java.nio.file.Path;
 import java.util.Properties;
 
 public class PropertiesLoader {
-	public static void main(String args[]) throws IOException {
-		/*Path path = FileSystems.getDefault().getPath("confluence.properties").toAbsolutePath();
-		System.out.println(path.toString());*/
-		PropertiesLoader pl = new PropertiesLoader();
-		Properties pr = pl.loader();
-		System.out.println(pr.get("space.key"));
-	}
 	
 	public Properties loader() throws IOException {
 		Properties prop = new Properties();

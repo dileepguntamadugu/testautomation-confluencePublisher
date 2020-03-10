@@ -1,10 +1,11 @@
 package com.confluence.data;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
+import java.nio.file.FileSystems;
 import java.util.HashMap;
+import java.util.Properties;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
@@ -12,9 +13,9 @@ import org.apache.commons.csv.CSVRecord;
 public class AggregateData {
 	private static final String[] HEADERS = {"Story","Title","Result","Date","Stability","Duration (s)"};
 
-	public HashMap<String, HashMap<String, String>> returnResultsData() throws IOException{
+	public HashMap<String, HashMap<String, String>> returnResultsData(Properties prop) throws IOException{
 		HashMap<String, HashMap<String, String>> metaDataMap = new HashMap<>();
-		Reader in = new FileReader("results.csv");
+		Reader in = new FileReader(FileSystems.getDefault().getPath(prop.getProperty("results.path")).toAbsolutePath().toString());
 	    Iterable<CSVRecord> records = CSVFormat.DEFAULT
 	      .withHeader(HEADERS)
 	      .withFirstRecordAsHeader()
